@@ -1,6 +1,6 @@
 {
   "name": "aimake-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/index.js",
   "description": "AiMake command line.",
   "license": "MIT",
@@ -12,6 +12,9 @@
     "aimake",
     "cli"
   ],
+  "bin": {
+    "aimake": "./bin/aimake"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
