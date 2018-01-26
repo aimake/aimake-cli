@@ -32,14 +32,13 @@ const pluginPackagePath = {
   'aimake-cli': path.resolve(__dirname, '../package.json'),
 };
 
-function ensureLegaoFile() {
+function ensureAiMakeFile() {
   const rootDir = path.join(os.homedir(), '.aimake');
   fse.ensureDirSync(rootDir);
   fse.ensureDirSync(path.join(rootDir, 'plugins'));
   fse.ensureDirSync(path.join(rootDir, 'plugins/node_modules'));
   fse.ensureFileSync(path.join(rootDir, 'latest-versions.json'));
   fse.ensureDirSync(moduleDirs[0]);
-  fse.ensureDirSync(moduleDirs[1]);
 }
 
 function registerCoreCommand() {
@@ -180,7 +179,7 @@ async function main() {
   }
 
   // 保证目录、文件存在
-  ensureLegaoFile();
+  ensureAiMakeFile();
 
   // 检查 aimake-cli 版本更新
   await updater('aimake-cli', pluginPackagePath);

@@ -1,6 +1,6 @@
 {
   "name": "aimake-cli",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "main": "./lib/index.js",
   "description": "AiMake command line.",
   "license": "MIT",
