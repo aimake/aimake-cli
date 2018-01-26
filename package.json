@@ -13,7 +13,7 @@
     "cli"
   ],
   "bin": {
-    "aimake": "./bin/aimake"
+    "aimake": "./bin/legao"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
