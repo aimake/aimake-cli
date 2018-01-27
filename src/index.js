@@ -104,7 +104,7 @@ async function installCorePlugin(command) {
       { name: `aimake-plugin-${command}`, version: 'latest' },
     ],
     targetDir: pluginsDir,
-    registry: 'http://registry.npmjs.com',
+    registry: 'http://registry.npmjs.org',
   };
   console.log(chalk.green(`开始首次安装 ${chalk.yellow.bold(command)} 模块`));
   try {
@@ -143,8 +143,7 @@ async function run(command, pluginPath) {
   }
   // 检查插件版本更新
   await updater(command, pluginPackagePath);
-
-  const pluginDef = require(pluginPath);
+  const pluginDef = require(pluginPath).default;
   const plugin = program.command(pluginDef.command || command);
   if (pluginDef.options) {
     // 添加命令的选项参数并进行解释
