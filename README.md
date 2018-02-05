@@ -2,7 +2,7 @@
 
 # 安装
 ```bash
-cnpm global add aimake-cli
+npm install -g aimake-cli
 ```
 
 # 主要用法
