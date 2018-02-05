@@ -10,8 +10,8 @@ export default function (pluginsDir) {
     const pkg = require(path.join(rootDir, './package.json'));
     const pluginName = pkg.name;
     const match = /plugin-(\w*)/.exec(pluginName);
-    execSync('cnpm link');
-    execSync(`cnpm link ${pluginName}`, {
+    execSync('npm link');
+    execSync(`npm link ${pluginName}`, {
       cwd: path.join(pluginsDir),
     });
     console.log(chalk.green.bold(`Soft link success, now you can execute ${chalk.yellow.bold(`\`aimake ${match[1]}\``)} to test command.`));

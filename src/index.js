@@ -63,7 +63,7 @@ function registerPlugin() {
   const pluginPool = {};
   moduleDirs.forEach((modulesDir) => {
     // 扫描插件
-    plugins = fs.readdirSync(modulesDir).filter(name => /^(@ali\/)?aimake-plugin-\w+$/.test(name));
+    plugins = fs.readdirSync(modulesDir).filter(name => /^aimake-plugin-\w+$/.test(name));
     // 注册插件
     plugins.forEach((name) => {
       if (!pluginPool[name]) {
@@ -82,7 +82,7 @@ function registerPlugin() {
           // 保存 package 文件信息，检查版本更新需要
           pluginPackagePath[name.substring(13)] = packageJson;
         } catch (e) {
-          console.log(chalk.red('读取插件信息出现异常，请联系@心伦'));
+          console.log(chalk.red('Exception occurred when reading plugin information.'));
           process.exit(0);
         }
       }
@@ -91,7 +91,7 @@ function registerPlugin() {
 }
 
 function error(e) {
-  const err = '未知错误，请联系@心伦';
+  const err = 'Unknown error';
   console.error(chalk.red(`ERROR: ${err}`));
   console.error(e.stack);
   process.exit(1);
@@ -110,7 +110,7 @@ async function installCorePlugin(command) {
   try {
     await npminstall(config);
   } catch (e) {
-    console.log(chalk.red(`Failure of installation module ${chalk.yellow.bold(command)}.`));
+    console.log(chalk.red(`Failure of installation module ${chalk.yellow.bold(command)}`));
     process.exit();
   }
 }
