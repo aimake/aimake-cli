@@ -8,9 +8,9 @@ import chalk from 'chalk';
 import resolve from 'resolve';
 import npminstall from 'npminstall';
 import updater from './updater';
-import link from './link';
-import commandDefine from './command';
 import pkg from '../package.json';
+import link from './tools/link';
+import commandDefine from './command';
 
 program
   .version(pkg.version)
@@ -32,7 +32,7 @@ const pluginPackagePath = {
   'aimake-cli': path.resolve(__dirname, '../package.json'),
 };
 
-function ensureAiMakeFile() {
+function ensureAIMakeFile() {
   const rootDir = path.join(os.homedir(), '.aimake');
   fse.ensureDirSync(rootDir);
   fse.ensureDirSync(path.join(rootDir, 'plugins'));
@@ -63,7 +63,7 @@ function registerPlugin() {
   const pluginPool = {};
   moduleDirs.forEach((modulesDir) => {
     // 扫描插件
-    plugins = fs.readdirSync(modulesDir).filter(name => /aimake-plugin-\w+$/.test(name));
+    plugins = fs.readdirSync(modulesDir).filter(name => /^(@ali\/)?aimake-plugin-\w+$/.test(name));
     // 注册插件
     plugins.forEach((name) => {
       if (!pluginPool[name]) {
@@ -106,11 +106,11 @@ async function installCorePlugin(command) {
     targetDir: pluginsDir,
     registry: 'http://registry.npmjs.org',
   };
-  console.log(chalk.green(`开始首次安装 ${chalk.yellow.bold(command)} 模块`));
+  console.log(chalk.green(`Start installing module ${chalk.yellow.bold(command)} ...`));
   try {
     await npminstall(config);
   } catch (e) {
-    console.log(chalk.red('安装模块失败，请联系@心伦'));
+    console.log(chalk.red(`Failure of installation module ${chalk.yellow.bold(command)}.`));
     process.exit();
   }
 }
@@ -143,7 +143,8 @@ async function run(command, pluginPath) {
   }
   // 检查插件版本更新
   await updater(command, pluginPackagePath);
-  const pluginDef = require(pluginPath).default;
+
+  const pluginDef = require(pluginPath);
   const plugin = program.command(pluginDef.command || command);
   if (pluginDef.options) {
     // 添加命令的选项参数并进行解释
@@ -178,7 +179,7 @@ async function main() {
   }
 
   // 保证目录、文件存在
-  ensureAiMakeFile();
+  ensureAIMakeFile();
 
   // 检查 aimake-cli 版本更新
   await updater('aimake-cli', pluginPackagePath);

@@ -1,9 +1,9 @@
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
 import chalk from 'chalk';
 import packageJson from 'package-json';
+import fs from 'fs';
+import path from 'path';
 import semver from 'semver';
+import os from 'os';
 
 // 版本检查信息记录文件
 const configRoot = path.join(os.homedir(), '.aimake');
