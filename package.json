@@ -24,8 +24,9 @@
     "eslint-config-aimake": "^0.0.1"
   },
   "dependencies": {
-    "aimake-plugin-init": "^0.0.2",
-    "aimake-plugin-install": "^0.0.1",
+    "aimake-plugin-init": "0.0.3",
+    "aimake-plugin-install": "0.0.2",
+    "aimake-plugin-plugin": "0.0.1",
     "babel-runtime": "^6.26.0",
     "chalk": "^2.3.0",
     "commander": "^2.13.0",
