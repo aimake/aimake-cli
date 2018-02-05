@@ -12,7 +12,7 @@ const versionsPath = path.join(configRoot, 'latest-versions.json');
 function showTip(plugin, currentVersion, remoteVersion) {
   if (plugin === 'aimake-cli') {
     console.log(chalk.yellow(`\n  Update available: ${plugin}@${remoteVersion} (Current: ${currentVersion}) 
-     \n  Run  \`yarn install aimake-cli -g \`  to update.\n`));
+     \n  Run  \`cnpm install aimake-cli -g \`  to update.\n`));
   } else {
     console.log(chalk.yellow(`\n  Update available: ${plugin}@${remoteVersion} (Current: ${currentVersion}) 
      \n  Run  \`aimake install ${plugin} \`  to update.\n`));

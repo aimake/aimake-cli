@@ -2,7 +2,7 @@
 
 # 安装
 ```bash
-yarn global add aimake-cli
+cnpm global add aimake-cli
 ```
 
 # 主要用法
