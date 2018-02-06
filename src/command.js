@@ -1,11 +1,19 @@
 export default [
   {
     name: 'init',
-    description: '初始化工程目录结构',
+    description: 'Initialize project structure',
   },
   {
     name: 'dev',
-    description: '开启本地调试服务器',
+    description: 'Enable local debug server',
+  },
+  {
+    name: 'build',
+    description: 'Build source code',
+  },
+  {
+    name: 'sync',
+    description: 'Synchronise remote project',
   },
   {
     name: '',
@@ -13,10 +21,10 @@ export default [
   },
   {
     name: 'install [plugins...]',
-    description: '安装/更新插件',
+    description: 'Install/Update plugins',
   },
   {
     name: 'plugin [name]',
-    description: '初始化插件目录结构',
+    description: 'Initialize plugin project structure',
   },
 ];
