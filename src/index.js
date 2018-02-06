@@ -19,7 +19,7 @@ program
 const argvs = process.argv;
 
 // 核心命令
-const coreCommand = ['init', 'dev', 'add', 'build', 'push', 'publish', 'install', 'plugin', 'sync'];
+const coreCommand = ['init', 'dev', 'install', 'plugin'];
 
 // 插件存放目录
 const pluginsDir = path.join(__dirname, '..');
