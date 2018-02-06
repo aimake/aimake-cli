@@ -74,13 +74,13 @@ function registerPlugin() {
           const packageJson = path.join(modulesDir, name, 'package.json');
           const pluginPkg = require(packageJson);
           // 核心命令不需要重新注册
-          if (!ifCoreCommand(name.substring(13))) {
+          if (!ifCoreCommand(name.substring(14))) {
             program
-              .command(name.substring(13))
+              .command(name.substring(14))
               .description(pluginPkg.description);
           }
           // 保存 package 文件信息，检查版本更新需要
-          pluginPackagePath[name.substring(13)] = packageJson;
+          pluginPackagePath[name.substring(14)] = packageJson;
         } catch (e) {
           console.log(chalk.red('Exception occurred when reading plugin information.'));
           process.exit(0);
