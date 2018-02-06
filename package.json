@@ -1,6 +1,6 @@
 {
   "name": "aimake-cli",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "index.js",
   "description": "AiMake command line.",
   "license": "MIT",
@@ -24,6 +24,7 @@
     "eslint-config-aimake": "^0.0.1"
   },
   "dependencies": {
+    "aimake-plugin-build": "latest",
     "aimake-plugin-init": "latest",
     "aimake-plugin-install": "latest",
     "aimake-plugin-plugin": "latest",
